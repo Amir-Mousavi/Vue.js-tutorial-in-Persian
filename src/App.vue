@@ -1,16 +1,24 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <grocery-item v-for="item in groceryList" :key="item" :item="item" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import GroceryItem from "./components/GroceryItem.vue";
 export default {
   name: "App",
   components: {
-    HelloWorld
+    GroceryItem
+  },
+  data: () => {
+    return {
+      groceryList: [
+        { id: 0, text: "Vegetables" },
+        { id: 1, text: "Cheese" },
+        { id: 2, text: "Whatever else humans are supposed to eat" }
+      ]
+    };
   }
 };
 </script>
